@@ -15,12 +15,15 @@
 
 $(call inherit-product, device/xiaomi/kenzo/full_kenzo.mk)
 
-
 # Inherit some common AOSP stuff.
-$(call inherit-product, vendor/aosp/common.mk)
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
-
-# Set those variables here to overwrite the inherited values.
+# Inherit some common Evolution X stuff
+CUSTOM_BUILD_TYPE := UNOFFICIAL
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_GAPPS_ARCH := arm64
+TARGET_SUPPORTS_GOOGLE_RECORDER := false
+TARGET_INCLUDE_STOCK_ARCORE := false
 BOARD_VENDOR := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := kenzo
@@ -36,7 +39,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="kenzo-user 6.0.1 MMB29M V8.2.1.0.MHOCNDL release-keys"
 
 BUILD_FINGERPRINT=Xiaomi/kenzo/kenzo:6.0.1/MMB29M/V8.2.1.0.MHOCNDL:user/release-keys
-
-# Product packages
-TARGET_USE_JELLY := true
-
